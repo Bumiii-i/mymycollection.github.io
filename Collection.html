@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Home</a> <span class="separator">|</span>
+            <a href="collection.html">Collection</a> <span class="separator">|</span>
+            <a href="contact.html">Contact</a> <span class="separator">|</span>
+            <a href="about.html">About</a>
+        </div>
+        <div class="nav-auth">
+            <a href="signin.html">Sign in</a> <span class="separator">|</span>
+            <a href="signup.html">Sign up</a>
+        </div>
+    </nav>
+
+    <div class="collection-section">
+        <h1>My Collection</h1>
+        
+        <div class="slider-container">
+            <button class="slide-btn btn-prev" onclick="moveSlide(-1)">❮</button>
+            <button class="slide-btn btn-next" onclick="moveSlide(1)">❯</button>
+            
+            <div class="slides" id="slider">
+                <img src="assets/image1.jpeg" alt="Collection 1">
+                <img src="assets/image2.png" alt="Collection 2">
+                <img src="assets/image3.jpg" alt="Collection 3">
+                <img src="assets/image4.jpg" alt="Collection 4">
+                <img src="assets/image5.jpg" alt="Collection 5">
+                <img src="assets/image6.jpg" alt="Collection 6">
+                <img src="assets/image7.jpg" alt="Collection 7">
+                <img src="assets/image8.jpg" alt="Collection 8">
+                <img src="assets/image9.jpg" alt="Collection 9">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const totalSlides = 9;
+
+        function moveSlide(direction) {
+            const slider = document.getElementById('slider');
+            
+            currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+            
+            const movePercentage = 100 / totalSlides; 
+            slider.style.transform = `translateX(-${currentIndex * movePercentage}%)`;
+        }
+    </script>
+</body>
+</html>
